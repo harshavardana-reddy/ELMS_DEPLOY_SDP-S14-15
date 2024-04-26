@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    background-image: url('../src/components/images/bg1.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Ensure body covers the full viewport height */
+}
+#image{
+    align-items: end;
+    size: 100%;
+}
+
+/* styles.css */
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .form-group select {
+    appearance: none;
+  }
+  
+  #wrapper{
+    margin: 20pt;
+    padding: 100pt;
+  }
+  table{
+    width: '60%'
+  }
+
+  .animated-image {
+    animation: growImage 1s ease-in-out;
+  }
+  
+  @keyframes growImage {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+  
