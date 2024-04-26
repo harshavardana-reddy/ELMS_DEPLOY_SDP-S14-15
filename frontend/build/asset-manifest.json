@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8882e53a.css",
+    "main.js": "/static/js/main.b2a1adb7.js",
+    "static/js/453.d855a71b.chunk.js": "/static/js/453.d855a71b.chunk.js",
+    "static/media/Inter-italic.var.woff2?v=3.19": "/static/media/Inter-italic.var.30807be7abc48ba8c73c.woff2",
+    "static/media/Inter-roman.var.woff2?v=3.19": "/static/media/Inter-roman.var.ba4caefcdf5b36b438db.woff2",
+    "static/media/approved.png": "/static/media/approved.0528226cca65be2a066e.png",
+    "static/media/rejected.png": "/static/media/rejected.a5afcb51f9bc00cdc302.png",
+    "static/media/pending.png": "/static/media/pending.2985d1141ebe015fe522.png",
+    "static/media/bg1.jpg": "/static/media/bg1.cd7ed0f73bbbf8c02e25.jpg",
+    "static/media/img2.jpg": "/static/media/img2.7f02bf991808a7d93f03.jpg",
+    "static/media/21.png": "/static/media/21.b45ab278823323536fa6.png",
+    "static/media/img1.jpg": "/static/media/img1.0b5f70e0acf1f1aae110.jpg",
+    "index.html": "/index.html",
+    "main.8882e53a.css.map": "/static/css/main.8882e53a.css.map",
+    "main.b2a1adb7.js.map": "/static/js/main.b2a1adb7.js.map",
+    "453.d855a71b.chunk.js.map": "/static/js/453.d855a71b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8882e53a.css",
+    "static/js/main.b2a1adb7.js"
+  ]
+}

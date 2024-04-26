@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon Server.js"
+    "start": "nodemon Server.js",
+    "build":"npm i"
   },
   "author": "P.HARSHAVARDANA REDDY, K.SANJAY",
   "license": "ISC",
