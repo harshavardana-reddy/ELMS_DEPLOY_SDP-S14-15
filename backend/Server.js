@@ -16,9 +16,19 @@ mongoose.connect(process.env.MONGODB_URI_MAIN)
 .then(() => console.log(clc.green.underline('Connected to Atlas Database Successfully.')))
 .catch(err => console.log(clc.red(` Error while connecting to Database: ${err.message}`)));
 
+
+app.get('/',(req,res)=>{
+  res.status.send("<b align='center'>ELMS BACKEND STARTED</b>")
+})
+
+
 app.use("/admin",adminrouter)
 
 app.use("/employee",employeeRouter)
+
+app.get('/*',(req,res)=>{
+  res.status.send("<b align='center'>No API Found.</b>")
+})
 
 
 app.listen(PORT, () => {
