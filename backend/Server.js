@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGODB_URI_MAIN)
 
 
 app.get('/',(req,res)=>{
-  res.status.send("<b align='center'>ELMS BACKEND STARTED</b>")
+  res.status(200).send("<b align='center'>ELMS BACKEND STARTED</b>")
 })
 
 
@@ -27,7 +27,7 @@ app.use("/admin",adminrouter)
 app.use("/employee",employeeRouter)
 
 app.get('/*',(req,res)=>{
-  res.status.send("<b align='center'>No API Found.</b>")
+  res.status(404).send("<b align='center'>No API Found.</b>")
 })
 
 
