@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import CanvasJSReact from '@canvasjs/react-charts';
 import BackendURLS from '../config';
 import { ToastContainer } from 'react-toastify';
+import { Spinner } from '@nextui-org/react';
 // import './LeaveAnalysis.css'; // Import CSS file
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -28,7 +29,7 @@ export default function LeaveAnalysis() {
     }, []);
 
     const renderChart = () => {
-        if (!analysis) return null;
+        if (!analysis) return <Spinner/>;
 
         const { EmployeeCount, LeaveCount, LeavePendingCount, LeaveApprovedCount, LeaveRejectedCount, CasualLeaveCount, MaternityLeaveCount, MedicalLeaveCount, HalfPaidLeaveLeaveCount, CompensatedCasualLeaveCount, SickLeaveCount, LeaveCountDayByDay } = analysis;
 
