@@ -1,9 +1,10 @@
-import React,{useState, useEffect} from "react";
-import image21 from "../components/images/21.png";
+import React, { useState, useEffect } from "react";
 import Typed from "typed.js";
 import BackendURLS from "../config";
 import axios from 'axios';
 import { motion } from "framer-motion";
+import { Spinner } from "@nextui-org/react";
+import image21 from '../components/images/21.png'
 
 // Separate component for displaying analysis data
 const AnalysisCard = ({ title, value }) => (
@@ -17,9 +18,16 @@ const AnalysisCard = ({ title, value }) => (
   </motion.div>
 );
 
+// Loader component
+const Loader = () => (
+  <div className="loader-container mt-3">
+    <Spinner size='lg' color="warning" label="Please Wait...." />
+  </div>
+);
+
 export default function AdminHome() {
-  
   const [analysis, setAnalysis] = useState(null);
+  const [loading, setLoading] = useState(true); // State to track loading
 
   const fetchAnalysis = async () => {
     try {
@@ -31,6 +39,8 @@ export default function AdminHome() {
       setAnalysis(response.data);
     } catch (error) {
       console.log(error.message);
+    } finally {
+      setLoading(false); // Update loading state once fetching is done
     }
   };
 
@@ -78,14 +88,18 @@ export default function AdminHome() {
 
         {/* Display analysis data in separate cards */}
         <div className="flex justify-center">
-          {analysis && (
-            <>
-              <AnalysisCard title="Employee Count" value={analysis.EmployeeCount} />
-              <AnalysisCard title="Total Leaves" value={analysis.LeaveCount} />
-              <AnalysisCard title="Pending Leaves" value={analysis.LeavePendingCount} />
-              <AnalysisCard title="Approved Leaves" value={analysis.LeaveApprovedCount} />
-              <AnalysisCard title="Rejected Leaves" value={analysis.LeaveRejectedCount} />
-            </>
+          {loading ? (
+            <Loader /> // Render loader while loading
+          ) : (
+            analysis && (
+              <>
+                <AnalysisCard title="Employee Count" value={analysis.EmployeeCount} />
+                <AnalysisCard title="Total Leaves" value={analysis.LeaveCount} />
+                <AnalysisCard title="Pending Leaves" value={analysis.LeavePendingCount} />
+                <AnalysisCard title="Approved Leaves" value={analysis.LeaveApprovedCount} />
+                <AnalysisCard title="Rejected Leaves" value={analysis.LeaveRejectedCount} />
+              </>
+            )
           )}
         </div>
       </div>

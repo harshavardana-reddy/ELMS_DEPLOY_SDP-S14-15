@@ -4,6 +4,14 @@ import axios from "axios";
 import BackendURLS from "../config";
 import image21 from '../components/images/21.png'
 import { motion } from 'framer-motion'
+import { Spinner } from "@nextui-org/react";
+
+// Loader component
+const Loader = () => (
+  <div className="loader-container mt-3">
+    <Spinner size='lg' color="warning" label="Please Wait...." />
+  </div>
+);
 
 const AnalysisCard = ({ title, value }) => (
   <motion.div
@@ -18,6 +26,7 @@ const AnalysisCard = ({ title, value }) => (
 
 export default function EmployeeHome() {
   const [analysis, setAnalysis] = useState(null);
+  const [loading, setLoading] = useState(true); // State to track loading
 
   const fetchAnalysis = async () => {
     const empid = JSON.parse(sessionStorage.getItem("employee")).EmployeeID;
@@ -33,6 +42,8 @@ export default function EmployeeHome() {
       setAnalysis(response.data);
     } catch (error) {
       console.log("Error fetching analysis:", error.message);
+    } finally {
+      setLoading(false); // Update loading state once fetching is done
     }
   };
 
@@ -75,15 +86,19 @@ export default function EmployeeHome() {
         <span id="typed-text2"></span>
       </h1>
       <div className="flex justify-center">
-        {analysis && (
-          <>
-            <AnalysisCard title="Total Leaves Taken" value={analysis.LeaveCount} />
-            <AnalysisCard title="Casual Leave " value={analysis.CasualLeaveCount} />
-            <AnalysisCard title="Sick Leave " value={analysis.SickLeaveCount} />
-            <AnalysisCard title="Medical Leave" value={analysis.MedicalLeaveCount} />
-            <AnalysisCard title="Compensated Casual Leave " value={analysis.CompensatedCasualLeaveCount} />
-            <AnalysisCard title="Half Paid Leave " value={analysis.HalfPaidLeaveLeaveCount} />
-          </>
+        {loading ? (
+          <Loader /> // Render loader while loading
+        ) : (
+          analysis && (
+            <>
+              <AnalysisCard title="Total Leaves Taken" value={analysis.LeaveCount} />
+              <AnalysisCard title="Casual Leave " value={analysis.CasualLeaveCount} />
+              <AnalysisCard title="Sick Leave " value={analysis.SickLeaveCount} />
+              <AnalysisCard title="Medical Leave" value={analysis.MedicalLeaveCount} />
+              <AnalysisCard title="Compensated Casual Leave " value={analysis.CompensatedCasualLeaveCount} />
+              <AnalysisCard title="Half Paid Leave " value={analysis.HalfPaidLeaveLeaveCount} />
+            </>
+          )
         )}
       </div>
     </div>

@@ -66,7 +66,9 @@ export default function ViewLeaves() {
     <div>
       <h1 className="text-3xl font-bold text-center mt-3">View Leaves</h1>
       {loading ? ( // Conditionally render loader
-        <Spinner size='lg' label="Loading..." />
+      <div align="center" className='spinner' >
+        <Spinner size='lg' color="warning" label="Loading..." />
+      </div>
       ) : (
         <div>
           <div className="m-5" align="center">
