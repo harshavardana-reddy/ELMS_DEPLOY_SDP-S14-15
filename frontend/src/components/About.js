@@ -20,7 +20,7 @@ export default function About() {
           <li className="text-xl font-bold">User authentication enables employees to sign in securely and access leave-related information.</li>
           <li className="text-xl font-bold">Leave Requests: Employees can submit leave requests specifying the type of leave (e.g., sick leave, vacation), duration, and reason.</li>
           <li className="text-xl font-bold">Leave Balances: The system monitors and shows employees' leave balances, including accumulated, taken, and available leave.</li>
-          <li className="text-xl font-bold">Notifications: Employees receive automated notifications when their leave requests are submitted, approved, or rejected.</li>
+          <li className="text-xl font-bold">Notifications: Employees receive automated email notifications when their leave requests are submitted, approved, or rejected.</li>
           <li className="text-xl font-bold">Calendar Integration: Using calendar systems to present leave schedules and availability.</li>
           <li className="text-xl font-bold">Reporting and Analytics: Provides statistics and analytics on leave utilization, trends, and patterns to help with decision-making and resource planning.</li>
         </ol>
@@ -32,6 +32,8 @@ export default function About() {
         <span className="text-xl font-bold">Security: Uses strong security measures to secure critical employee data and prevent unauthorized access. Data confidentiality and integrity are ensured by the use of encryption, secure authentication procedures, and role-based access control (RBAC).</span>
         <br /><br />
         <span className="font-bold text-xl">Contributor:</span> This project is guided by Mr. Jonnalaggadda Surya Kiran and developed by K. Sanjay and P. Harshavardana Reddy.
+        <br/><br/>
+        <span className="font-bold text-xl">Login Methods:</span> The Employee Login is secured with email authentication and the Admin has to create an account for a Employee.
       </p>
     </motion.div>
   );
