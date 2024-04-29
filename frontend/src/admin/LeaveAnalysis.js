@@ -29,7 +29,11 @@ export default function LeaveAnalysis() {
     }, []);
 
     const renderChart = () => {
-        if (!analysis) return <Spinner/>;
+        if (!analysis) return (
+            <div align="center" className='spinner' >
+                <Spinner size='lg' color="warning" label='Loading Analysis.....' />
+            </div>
+        );
 
         const { EmployeeCount, LeaveCount, LeavePendingCount, LeaveApprovedCount, LeaveRejectedCount, CasualLeaveCount, MaternityLeaveCount, MedicalLeaveCount, HalfPaidLeaveLeaveCount, CompensatedCasualLeaveCount, SickLeaveCount, LeaveCountDayByDay } = analysis;
 

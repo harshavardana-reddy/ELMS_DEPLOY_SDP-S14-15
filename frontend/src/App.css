@@ -16,7 +16,9 @@
         opacity: 1;
     }
 } */
-
+.spinner{
+    margin-top: 20%;
+}
 #img{
     border: 0cap;
     background: fixed;

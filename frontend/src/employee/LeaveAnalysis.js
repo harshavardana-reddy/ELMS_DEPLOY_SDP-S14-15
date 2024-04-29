@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import CanvasJSReact from '@canvasjs/react-charts';
 import BackendURLS from '../config';
+import { Spinner } from '@nextui-org/react';
 import { ToastContainer } from 'react-toastify';
 // import './LeaveAnalysis.css'; // Import CSS file
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -28,7 +29,11 @@ export default function LeaveAnalysis() {
     }, []);
 
     const renderChart = () => {
-        if (!analysis) return null;
+        if (!analysis) return (
+            <div align="center" className='spinner' >
+                <Spinner size='lg' color="warning" label='Loading Analysis.....' />
+            </div>
+        );
 
         const { EmployeeCount, LeaveCount, LeavePendingCount, LeaveApprovedCount, LeaveRejectedCount, CasualLeaveCount, MaternityLeaveCount, MedicalLeaveCount, HalfPaidLeaveLeaveCount, CompensatedCasualLeaveCount, SickLeaveCount, LeaveCountDayByDay } = analysis;
 
@@ -146,8 +151,8 @@ export default function LeaveAnalysis() {
 
         return (
             <div >
-            <h1 className="headingleave" align="center" >Your Leave Analysis</h1>
-            <div className="leaveAnalysisContainer" style={{zIndex:-1}} > {/* Apply animation to this container */}
+            <h1 className="headingleave mt-10" align="center" >Your Leave Analysis</h1>
+            <div className="leaveAnalysisContainer mt-6" style={{zIndex:-1}} > {/* Apply animation to this container */}
                 <div style={{ display: "inline-block", width: "50%" }}>
                     <CanvasJSChart options={typePieOptions} />
                 </div>
